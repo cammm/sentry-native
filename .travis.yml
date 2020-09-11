@@ -24,8 +24,8 @@ before_install:
   - python -V
   - pip -V
 
-script: |
-  python -V
-  pip -V
-  pip install --upgrade --requirement tests/requirements.txt
-  pytest --capture=no --verbose tests
+script:
+  - python -V
+  - pip -V
+  - pip install --upgrade --requirement tests/requirements.txt
+  - pytest --capture=no --verbose tests
