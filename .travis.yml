@@ -11,6 +11,7 @@ jobs:
       osx_image: xcode8
 
 install:
+  - pip install -U pip
   - pip install --egg --no-binary pyenv pyenv
   - export PATH=~/.pyenv/bin:$PATH
   - eval "$(pyenv init -)"
