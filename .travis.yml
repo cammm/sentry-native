@@ -10,8 +10,13 @@ jobs:
     - os: osx
       osx_image: xcode8
 
+addons:
+  homebrew:
+    packages:
+    - cmake
+    update: true
+
 install:
-  - brew update && brew upgrade cmake
   - unset PYENV_ROOT
   - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
   - export PATH=~/.pyenv/bin:$PATH
