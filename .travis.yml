@@ -11,17 +11,4 @@ jobs:
       osx_image: xcode8
 
 install:
-  - brew install https://raw.githubusercontent.com/Homebrew/homebrew-core/a169609a5dcd5bf0cb83c2d8ffc7da934b3d81fe/Formula/cmake.rb
-  - unset PYENV_ROOT
-  - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
-  - export PATH=~/.pyenv/bin:$PATH
-  - eval "$(pyenv init -)"
-  - pyenv install --skip-existing 3.7.0
-  - pyenv global 3.7.0
-  - pyenv shell 3.7.0
-
-script:
-  - python -V
-  - pip -V
-  - pip install --upgrade --requirement tests/requirements.txt
-  - pytest --capture=no --verbose tests
+  - brew install cmake || brew upgrade cmake
