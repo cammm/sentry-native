@@ -17,7 +17,6 @@ addons:
     - openssl@1.1
 
 before_install:
-  - brew link --force openssl@1.1
   - CONFIGURE_OPTS="--with-openssl=$(brew --prefix openssl@1.1)" pyenv install 3.7.0
   - pyenv global 3.7.0
   - which python
@@ -25,6 +24,7 @@ before_install:
   - pip -V
 
 script:
+  - pyenv local 3.7.0
   - python -V
   - pip -V
   - pip install --upgrade --requirement tests/requirements.txt
