@@ -11,8 +11,8 @@ jobs:
       osx_image: xcode8
 
 install:
-  - pip install -U pip
-  - pip install --no-binary pyenv pyenv
+  - unset PYENV_ROOT
+  - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
   - export PATH=~/.pyenv/bin:$PATH
   - eval "$(pyenv init -)"
   - pyenv install --skip-existing 3.7.0
