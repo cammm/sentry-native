@@ -12,7 +12,7 @@ jobs:
 
 install:
   - pip install -U pip
-  - pip install --egg --no-binary pyenv pyenv
+  - pip install --no-binary pyenv pyenv
   - export PATH=~/.pyenv/bin:$PATH
   - eval "$(pyenv init -)"
   - pyenv install --skip-existing 3.7.0
