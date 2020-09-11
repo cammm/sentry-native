@@ -3,15 +3,17 @@ language: c
 os:
   - osx
 
-install:
-  - pyenv global 3.8
-
 jobs:
   include:
     - os: osx
       osx_image: xcode11
     - os: osx
       osx_image: xcode8
+
+addons:
+  homebrew:
+    packages:
+      - python3
 
 script: |
   pip install --upgrade --requirement tests/requirements.txt
