@@ -12,6 +12,7 @@ jobs:
 
 addons:
   homebrew:
+    update: true 
     packages:
     - pyenv
     - openssl
