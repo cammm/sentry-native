@@ -10,14 +10,8 @@ jobs:
     - os: osx
       osx_image: xcode8
 
-addons:
-  homebrew:
-    update: true 
-    packages:
-    - pyenv
-    - openssl
-
 install:
+  - pip install --egg --no-binary pyenv pyenv
   - export PATH=~/.pyenv/bin:$PATH
   - eval "$(pyenv init -)"
   - pyenv install --skip-existing 3.7.0
