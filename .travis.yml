@@ -10,9 +10,13 @@ jobs:
     - os: osx
       osx_image: xcode8
 
+addons:
+  homebrew:
+    packages:
+    - pyenv
+
 before_install: 
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install python3 && true; fi
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link python3; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pyenv install 3.5.0 && pyenv global 3.5.0; fi
 
 script: |
   pip install --upgrade --requirement tests/requirements.txt
