@@ -10,21 +10,19 @@ jobs:
     - os: osx
       osx_image: xcode8
 
-addons:
-  homebrew:
-    packages:
-    - pyenv
-    - openssl@1.1
-
-before_install:
-  - CONFIGURE_OPTS="--with-openssl=$(brew --prefix openssl@1.1)" pyenv install 3.7.0
-  - pyenv global 3.7.0
-  - which python
-  - python -V
-  - pip -V
+install:
+  - |
+    pip install -U pip
+    pip install --egg --no-binary pyenv pyenv
+    export PATH=~/.pyenv/bin:$PATH
+    eval "$(pyenv init -)"
+    pyenv install --skip-existing 3.7.0
+    pyenv global 3.7.0
+    pyenv shell 3.7.0
+    pip install -U pip setuptools wheel py
+    pip install .
 
 script:
-  - pyenv local 3.7.0
   - python -V
   - pip -V
   - pip install --upgrade --requirement tests/requirements.txt
