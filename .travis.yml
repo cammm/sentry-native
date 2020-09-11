@@ -16,7 +16,8 @@ addons:
     - pyenv
     - openssl@1.1
 
-before_install: 
+before_install:
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --force openssl@1.1; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then CONFIGURE_OPTS="--with-openssl=$(brew --prefix openssl@1.1)" pyenv install 3.7.0; fi
   - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pyenv global 3.7.0; fi
 
