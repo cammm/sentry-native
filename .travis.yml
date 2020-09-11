@@ -18,12 +18,11 @@ addons:
     - openssl
 
 install:
-  - |
-    export PATH=~/.pyenv/bin:$PATH
-    eval "$(pyenv init -)"
-    pyenv install --skip-existing 3.7.0
-    pyenv global 3.7.0
-    pyenv shell 3.7.0
+  - export PATH=~/.pyenv/bin:$PATH
+  - eval "$(pyenv init -)"
+  - pyenv install --skip-existing 3.7.0
+  - pyenv global 3.7.0
+  - pyenv shell 3.7.0
 
 script:
   - python -V
