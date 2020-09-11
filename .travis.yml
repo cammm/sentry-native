@@ -3,6 +3,9 @@ language: c
 os:
   - osx
 
+install:
+  - pyenv global 3.8
+
 jobs:
   include:
     - os: osx
