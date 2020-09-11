@@ -17,7 +17,8 @@ addons:
     - openssl
 
 before_install: 
-  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then CFLAGS="-I$(brew --prefix openssl)/include" LDFLAGS="-L$(brew --prefix openssl)/lib" pyenv install 3.5.0 && pyenv global 3.5.0; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then CONFIGURE_OPTS="--with-openssl=$(brew --prefix openssl)" pyenv install 3.5.0; fi
+  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then pyenv global 3.5.0; fi
 
 script: |
   pip install --upgrade --requirement tests/requirements.txt
