@@ -16,11 +16,9 @@ env:
     - CMAKE_VERSION=3.18.2
 
 install:
-  - echo Installing cmake $CMAKE_VERSION
   - CMAKE_URL="https://github.com/Kitware/CMake/releases/download/v${CMAKE_VERSION}/cmake-${CMAKE_VERSION}-Darwin-x86_64.tar.gz"
   - mkdir cmake-${CMAKE_VERSION} && travis_retry wget --no-check-certificate -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake-${CMAKE_VERSION}
   - export PATH=${PWD}/cmake-${CMAKE_VERSION}/CMake.app/Contents/bin:${PATH}
-  - echo Installing python $PYTHON_VERSION
   - unset PYENV_ROOT
   - curl -L https://github.com/pyenv/pyenv-installer/raw/master/bin/pyenv-installer | bash
   - export PATH=~/.pyenv/bin:$PATH
