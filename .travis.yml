@@ -11,8 +11,9 @@ jobs:
       osx_image: xcode8
 
 env:
-  - PYTHON_VERSION=3.7.0
-  - CMAKE_VERSION=3.18.2
+  global:
+    - PYTHON_VERSION=3.7.0
+    - CMAKE_VERSION=3.18.2
 
 install:
   - echo Installing cmake $CMAKE_VERSION
