@@ -28,8 +28,6 @@ install:
   - pyenv shell ${PYTHON_VERSION}
 
 script:
-  - cmake --version
-  - python -V
-  - pip -V
+  - cmake --version && python -V && pip -V
   - pip install --upgrade --requirement tests/requirements.txt
   - pytest --capture=no --verbose tests
