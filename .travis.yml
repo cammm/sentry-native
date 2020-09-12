@@ -17,3 +17,6 @@ install:
   - mkdir cmake-${CMAKE_VERSION} && travis_retry wget --no-check-certificate -O - ${CMAKE_URL} | tar --strip-components=1 -xz -C cmake-${CMAKE_VERSION}
   - ls ${PWD}/cmake-${CMAKE_VERSION}/
   - export PATH=${PWD}/cmake-${CMAKE_VERSION}/CMake.app/Contents/bin:${PATH}
+
+script:
+  - cmake --version
